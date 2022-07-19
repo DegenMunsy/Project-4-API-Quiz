@@ -1,6 +1,10 @@
 :root {
     background-color: #2c061e;
     font-size: 62.5%;
+
+    --main-pink: #f533ae;
+    --secondary-pink: #ff2eb3;
+    --third-pink: rgba(245, 0, 253, 0.5);
 }
 
 * {
