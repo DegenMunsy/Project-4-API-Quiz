@@ -1,3 +1,4 @@
+// set variables for the quiz
 const question = document.getElementById("question");
 const choices = Array.from(document.getElementsByClassName("choice-text"));
 const progressText = document.getElementById("progressText");
@@ -9,32 +10,31 @@ let score = 0;
 let questionCounter = 0;
 let availableQuesions = [];
 
-
+//  questions for the quiz
 let questions = [
   {
-    question: "Inside which HTML element do we put the JavaScript??",
-    choice1: "<script>",
-    choice2: "<javascript>",
-    choice3: "<js>",
-    choice4: "<scripting>",
-    answer: 1
-  },
-  {
-    question:
-      "What is the correct syntax for referring to an external script called 'xxx.js'?",
-    choice1: "<script href='xxx.js'>",
-    choice2: "<script name='xxx.js'>",
-    choice3: "<script src='xxx.js'>",
-    choice4: "<script file='xxx.js'>",
-    answer: 3
-  },
-  {
-    question: " How do you write 'Hello World' in an alert box?",
-    choice1: "msgBox('Hello World');",
-    choice2: "alertBox('Hello World');",
-    choice3: "msg('Hello World');",
-    choice4: "alert('Hello World');",
+    question: "What version of html is the most recent??",
+    choice1: "2",
+    choice2: "3",
+    choice3: "4",
+    choice4: "5",
     answer: 4
+  },
+  {
+    question: "Which of the following is a css package",
+    choice1: "BootLace",
+    choice2: "BootStrap",
+    choice3: "VelcroStrap",
+    choice4: "WorkBoots",
+    answer: 2
+  },
+  {
+    question: "Where should you push your code frequently?",
+    choice1: "Space",
+    choice2: "Github",
+    choice3: "Local Storage",
+    choice4: "Blockchain",
+    answer: 2
   }
 ];
 
@@ -42,6 +42,7 @@ let questions = [
 const CORRECT_BONUS = 10;
 const MAX_QUESTIONS = 3;
 
+// start game w/ question counter, score, questions, get new question function
 startGame = () => {
   questionCounter = 0;
   score = 0;
@@ -49,6 +50,7 @@ startGame = () => {
   getNewQuestion();
 };
 
+// formula to get new questions until max questions are asked
 getNewQuestion = () => {
   if (availableQuesions.length === 0 || questionCounter >= MAX_QUESTIONS) {
     //go to the end page
@@ -56,7 +58,8 @@ getNewQuestion = () => {
   }
   questionCounter++;
   progressText.innerText = `Question ${questionCounter}/${MAX_QUESTIONS}`;
-  //Update the progress bar
+ 
+  //Move the progress bar as questions are answered
   progressBarFull.style.width = `${(questionCounter / MAX_QUESTIONS) * 100}%`;
 
   const questionIndex = Math.floor(Math.random() * availableQuesions.length);
@@ -96,6 +99,7 @@ choices.forEach(choice => {
   });
 });
 
+// actively set score for the quiz 
 incrementScore = num => {
   score += num;
   scoreText.innerText = score;
