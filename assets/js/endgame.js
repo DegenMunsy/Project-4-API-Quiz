@@ -36,5 +36,7 @@ saveHighScore = e => {
 
     // save the high scores to the page
     localStorage.setItem("highScores", JSON.stringify(highScores))
-    window.location.href=""
+    window.location.href;
 }
+
+
